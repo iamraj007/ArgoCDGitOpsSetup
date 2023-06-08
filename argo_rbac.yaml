@@ -11,7 +11,7 @@ data:
     p, role:app-apparea, projects, get, apparea, allow
     p, role:app-apparea, repositories, *, apparea/*, allow
     p, role:app-apparea, applications, *, apparea/*, allow
-    p, role:app-apparea, applications, sync, apparea/*, allow	
+    p, role:app-apparea, applications, sync, apparea/*, allow
     p, role:app-apparea, clusters, get, *, allow
     g, dev, role:app-apparea
     p, role:app-apparea-admin, projects, get, *, allow
@@ -23,5 +23,3 @@ data:
     p, role:app-apparea-admin, clusters, get, *, allow
     p, role:app-apparea-admin, projects, get, ristricted/, deny
     g, devops, role:app-apparea-admin
-
-
