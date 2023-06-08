@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: proj_test
+  namespace: argocd
+spec:
+  description: Test team area
+  sourceRepos:
+  - '!https://gitlab.com/**'
+  - '!https://gitlab.com/*/*'
+  destinations:
+  # Deny NS list
+  - namespace: '!kube-system'
+    server: '*'
+  - namespace: '!kube-public'
+    server: '*'
+  # Allow NS list
+  - namespace: test*
+    server: https://kubernetes.default.svc
+  namespaceResourceBlacklist:
+  - group: ""
+    kind: ResourceQuota
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'

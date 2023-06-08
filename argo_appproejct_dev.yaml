@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: apparea
+  namespace: argocd
+spec:
+  description: apparea for app team
+  sourceRepos:
+  - '!https://gitlab.com/**'
+  - '!https://gitlab.com/*/*'
+  destinations:
+  # Deny NS list
+  - namespace: '!kube-system'
+    server: '*'
+  - namespace: '!kube-public'
+    server: '*'
+  # Allow NS list
+  - namespace: dev*
+    server: https://kubernetes.default.svc
+  namespaceResourceBlacklist:
+  - group: ""
+    kind: ResourceQuota
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'  
