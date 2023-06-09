@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: web-deploy-dev
+  name: web-deploy-demo
   namespace: argocd
   annotations:
     argocd-image-updater.argoproj.io/image-list: site=iamraj007/mynginx
@@ -14,7 +14,7 @@ spec:
   source:
     repoURL: https://github.com/iamraj007/ArgoCDGitOpsSetup.git
     targetRevision: HEAD
-    path: k8deployment.yaml
+    path: apps/mynginx-webapp/overlays/demo
   destination:
     server: https://kubernetes.default.svc
     namespace: default
