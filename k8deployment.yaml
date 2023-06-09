@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    appname: frontend-app
+    myenv: frontendapp-v1
+  name: myweb-frontendapp-dev
+  namespace: dev
+spec:
+  selector:
+    matchLabels:
+      app: my-web
+      appname: frontend-app
+      myenv: frontendapp-v1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: my-web
+        appname: frontend-app
+        myenv: frontendapp-v1
+    spec:
+      containers:
+        - image: iamraj007/mynginx:v2
+          name: front-container-app
+          ports:
+            - containerPort: 80
+              protocol: TCP
