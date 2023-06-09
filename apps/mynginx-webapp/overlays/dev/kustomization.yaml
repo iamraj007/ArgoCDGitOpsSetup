@@ -7,7 +7,7 @@ commonLabels:
   myenv: my-web-frontendapp-devkustom
 
 resources:
- - ns.yaml
+# - ns.yaml
  - ../../base/
 
 patchesStrategicMerge:
