@@ -9,6 +9,7 @@ commonLabels:
 resources:
 # - ns.yaml
  - ../../base/
+ - appingress.yaml
 
 patchesStrategicMerge:
 - deployment_app.yaml

@@ -6,18 +6,17 @@ metadata:
     nginx.ingress.kubernetes.io/backend-protocol: HTTPS
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-  name: myapp-server-ingress
+  name: web-frontend-ingress
 #  namespace: dev
 spec:
   rules:
-  - host: app2.argocdhost.com
+  - host: app.argocdhost.com
     http:
       paths:
       - backend:
           service:
-            name: myweb-frontendapp-svc-dev
+            name: web-svc
             port:
               number: 80
         path: /
         pathType: Prefix
-
