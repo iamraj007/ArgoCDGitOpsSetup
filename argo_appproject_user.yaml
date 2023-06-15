@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: proj-users
+  namespace: argocd
+spec:
+  description: Setup user space
+  sourceRepos:
+  - '!https://gitlab.com/**'
+  - 'https://gitlab.com/*/*'
+  - 'https://gitlab.com/**'
+  destinations:
+  # Deny NS list
+  - namespace: 'kube-system'
+    server: '*'
+  - namespace: '!kube-public'
+    server: '*'
+  # Allow NS list
+  - namespace: prod*
+    server: https://kubernetes.default.svc
+  namespaceResourceBlacklist:
+  - group: ""
+    kind: ResourceQuota
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'

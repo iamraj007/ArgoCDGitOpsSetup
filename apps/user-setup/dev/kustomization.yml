@@ -1,0 +1,6 @@
+bases:
+- ../base
+resources:
+- ClusterRole.yaml
+- ClusterRoleBinding.yaml
+- ServiceAccount.yaml

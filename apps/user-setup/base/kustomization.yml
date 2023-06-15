@@ -1,0 +1,4 @@
+resources:
+- ClusterRoleBindings.yml
+- ClusterRoles.yml
+- serviceaccounts.yml
