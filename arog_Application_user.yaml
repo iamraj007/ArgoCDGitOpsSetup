@@ -6,11 +6,9 @@ metadata:
 spec:
   project: proj-users
   destination:
-    namespace: kube-system
+    namespace: default
     server: https://kubernetes.default.svc
   source:
-    kustomize:
-      namespace: *
     path: apps/user-setup/dev
     repoURL: https://github.com/iamraj007/ArgoCDGitOpsSetup.git
     targetRevision: HEAD
